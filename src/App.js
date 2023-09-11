@@ -6,7 +6,7 @@ function App() {
     <>
     <NavBar />
      <div className="App">
-        <header className="App-header"> 
+        <header className="App-header gamingBackground"> 
           <h1>
             Welcome to GamingFarm.
           </h1>
