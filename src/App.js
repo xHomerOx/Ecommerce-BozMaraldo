@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import gamingImg from './assets/gaming-background.jpg';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
 
@@ -16,9 +17,7 @@ function App() {
     <NavBar />
      <div className="App">
         <header className="App-header" style={gamingBackground}> 
-          <h1>
-            Welcome to GamingFarm.
-          </h1>
+          <ItemListContainer greeting={'Welcome to GamingFarm.'} />
         </header>
       </div>
     </>
