@@ -36,12 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* Custom Background */
-
-.gamingBackground {
-  background: url("./assets/gaming-background.jpg");
-  background-size: "cover";
-  height: 100vh;
-  background-repeat:no-repeat;
-}
