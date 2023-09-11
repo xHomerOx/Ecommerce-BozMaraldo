@@ -17,9 +17,9 @@ function NavBar() {
               <Nav.Link href="/" className='text-white'>Action</Nav.Link>
               <Nav.Link href="/" className='text-white'>Adventure</Nav.Link>
               <Nav.Link href="/" className='text-white'>Shooters</Nav.Link>
+              <CartWidget />
             </Nav>
           </Navbar.Collapse>
-          <CartWidget />
         </Container>
       </Navbar>
   );
