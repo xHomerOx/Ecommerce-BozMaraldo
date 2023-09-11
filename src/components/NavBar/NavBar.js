@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/logo.svg';
 import './NavBar.css';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar() {
   return (
@@ -18,6 +19,7 @@ function NavBar() {
               <Nav.Link href="/" className='text-white'>Shooters</Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <CartWidget />
         </Container>
       </Navbar>
   );
