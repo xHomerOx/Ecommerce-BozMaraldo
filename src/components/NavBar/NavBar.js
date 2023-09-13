@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/logo.svg';
 import CartWidget from '../CartWidget/CartWidget';
 
-function NavBar() {
+const NavBar = () => {
   return (
       <Navbar expand="lg" style={{ background: '#282c34' }}>
         <Container>
