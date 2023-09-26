@@ -1,10 +1,14 @@
 import gamingImg from '../assets/gaming-background.jpg';
 
-const gamingBackground = {
+export const gamingBackground = {
     backgroundImage: `url(${gamingImg})`,
     backgroundSize: 'cover',
-    height: '100vh',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    minHeight: '100vh',
+    color: '#FFF'
 };
 
-export default gamingBackground
+export const headerHeight = {
+    minHeight: '60px',
+    color: '#DCEDC8'
+}
