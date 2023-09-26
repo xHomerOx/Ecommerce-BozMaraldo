@@ -1,8 +1,8 @@
 const Products = () => {
     return (
         <div className="d-flex flex-row justify-content-center">
-        <h2>Productos</h2>
-      </div>
+            <h2>Productos</h2>
+        </div>
     )
   }
   
