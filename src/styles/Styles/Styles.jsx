@@ -1,4 +1,4 @@
-import gamingImg from '../assets/gaming-background.jpg';
+import gamingImg from '../../assets/gaming-background.jpg';
 
 export const gamingBackground = {
     backgroundImage: `url(${gamingImg})`,

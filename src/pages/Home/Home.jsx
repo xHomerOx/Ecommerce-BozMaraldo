@@ -1,4 +1,4 @@
-import { gamingBackground } from "../../styles/Styles"
+import { gamingBackground } from "../../styles/Styles/Styles"
 
 const Home = () => {
   return (
