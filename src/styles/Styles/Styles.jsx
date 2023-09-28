@@ -9,6 +9,7 @@ export const gamingBackground = {
 };
 
 export const headerHeight = {
+    background: '#282c34',
     minHeight: '60px',
     color: '#DCEDC8'
 }
