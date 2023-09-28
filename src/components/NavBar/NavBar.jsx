@@ -16,9 +16,9 @@ const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link href="/" className='text-white'>Inicio</Nav.Link>
-              <Nav.Link href="/games" className='text-white'>Action</Nav.Link>
-              <Nav.Link href="/games" className='text-white'>Adventure</Nav.Link>
-              <Nav.Link href="/games" className='text-white'>Shooters</Nav.Link>
+              <Nav.Link href="/games/sports" className='text-white'>Sports</Nav.Link>
+              <Nav.Link href="/games/adventure" className='text-white'>Adventure</Nav.Link>
+              <Nav.Link href="/games/shooters" className='text-white'>Shooters</Nav.Link>
               <CartWidget />
             </Nav>
           </Navbar.Collapse>

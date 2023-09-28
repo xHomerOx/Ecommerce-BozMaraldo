@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
 import Categories from './pages/Categories/Categories';
-import Games from './pages/Games/Games';
 
 function App() {
 
@@ -21,9 +20,8 @@ function App() {
           <div style={gamingBackground}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/games" element={<Products />} />
-              <Route path="/games/:catId" element={<Categories />} />
-              <Route path="/games/:gameId" element={<Games />} />
+              <Route path="/games/" element={<Products />} />
+              <Route path="/games/:genre" element={<Categories />} />
             </Routes>
           </div>
         </BrowserRouter>

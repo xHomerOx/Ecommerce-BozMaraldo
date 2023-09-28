@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
 
 const GamesData = ({ genre }) => {
+
   const [games, setGames] = useState([])
   const [category, setCategory] = useState([]);
-
+  
   const fetchGamesData = () => {
     fetch(process.env.REACT_APP_API_URL, {
         method: "GET",
@@ -22,11 +23,13 @@ const GamesData = ({ genre }) => {
   }
 
   useEffect(() => {
+    console.log("Genre:", genre); 
+
     fetchGamesData();
   }, []);
   
   useEffect(() => {
-    if (genre) {
+    if (genre === "sports" || genre === "mmorpg" || genre === "shooter") {
       const genre = games.filter((game) => game.genre === genre);
       setCategory(category);
     } else {
