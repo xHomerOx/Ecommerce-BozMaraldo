@@ -29,7 +29,9 @@ const GamesData = () => {
       {games.length > 0 && (
         <ul>
           {games.map(game => (
-            <li key={game.id}>{game.title}</li>
+            <a href={game.game_url} key={game.id}>
+              <img src={game.thumbnail} className="p-2" />        
+            </a>
           ))}
         </ul>
       )}

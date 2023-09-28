@@ -1,10 +1,15 @@
 import { gamingBackground } from "../../styles/Styles/Styles"
+import GamesData from "../../hooks/api/Api"
 
 const Home = () => {
   return (
-    <div className="d-flex flex-row justify-content-center text-white" style={gamingBackground}>
+    <>
       <h2>Inicio</h2>
-    </div>
+      <div className="d-flex flex-row justify-content-center text-white" style={gamingBackground}>
+        <GamesData />
+      </div>
+    </>
+
   )
 }
 

@@ -1,8 +1,14 @@
+import { gamingBackground } from "../../styles/Styles/Styles"
+import GamesData from "../../hooks/api/Api"
+
 const Products = () => {
     return (
-        <div className="d-flex flex-row justify-content-center">
+        <>
             <h2>Productos</h2>
-        </div>
+            <div className="d-flex flex-row justify-content-center" style={gamingBackground}>
+                <GamesData />
+            </div>
+        </>
     )
   }
   

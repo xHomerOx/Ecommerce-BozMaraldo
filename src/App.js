@@ -7,7 +7,6 @@ import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
 import Categories from './pages/Categories/Categories';
 import Games from './pages/Games/Games';
-import GamesData from './hooks/api/Api';
 
 function App() {
 
@@ -26,7 +25,6 @@ function App() {
               <Route path="/games/:catId" element={<Categories />} />
               <Route path="/games/:gameId" element={<Games />} />
             </Routes>
-            <GamesData />
           </div>
         </BrowserRouter>
       </div>
