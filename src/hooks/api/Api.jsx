@@ -23,15 +23,20 @@ const GamesData = ({ genre }) => {
   }
 
   useEffect(() => {
-    console.log("Genre:", genre); 
-
     fetchGamesData();
   }, []);
   
   useEffect(() => {
-    if (genre === "sports" || genre === "mmorpg" || genre === "shooter") {
-      const genre = games.filter((game) => game.genre === genre);
-      setCategory(category);
+
+    const genres = {
+      'shooters': 'Shooter',
+      'sports': 'Sports',
+      'adventure': 'MMORPG',
+    };
+    
+    if (genre) {
+      const filteredGames = games.filter((game) => game.genre === genres[genre]);
+      setCategory(filteredGames);
     } else {
       setCategory(games);
     }
@@ -39,10 +44,10 @@ const GamesData = ({ genre }) => {
 
   return (
     <div>
-    {games.length > 0 && (
+    {category.length > 0 && (
       <div className="container">
         <div className="row">
-          {games.map(game => (
+          {category.map(game => (
             <div className="col-md-4 p-3" key={game.id}>
               <div className="card">
                 <a href={game.game_url}>
