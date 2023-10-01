@@ -3,8 +3,8 @@ import NavBar from './components/NavBar/NavBar';
 import { gamingBackground, headerHeight } from './styles/Styles/Styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import Categories from './pages/Categories/Categories';
-import Item from './pages/Item/Item';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
 
@@ -19,8 +19,8 @@ function App() {
           <div style={gamingBackground}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/games/:genre" element={<Categories />} />
-              <Route path="/game/:id" element={<Item />} />
+              <Route path="/games/:genre" element={<ItemListContainer />} />
+              <Route path="/game/:id" element={<ItemDetailContainer />} />
             </Routes>
           </div>
         </BrowserRouter>

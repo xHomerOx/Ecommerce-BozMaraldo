@@ -6,13 +6,23 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ genre }) => {
+const ItemListContainer = () => {
 
+    const genres = {
+        'shooters': 'Shooters',
+        'sports': 'Sports',
+        'adventure': 'Adventure',
+    };
+
+    const { genre } = useParams();
+    
     const { games, category } = GamesData({ genre });
 
     return (
         <>
+            <h2>{genres[genre]}</h2>
             <Container>
                 <Row xs={1} md={3} className="g-4">
                     {games.length > 0 && (
