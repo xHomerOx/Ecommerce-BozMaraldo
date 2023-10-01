@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-const GamesData = ({ genre }) => {
+const GamesData = ({genre}) => {
 
   const [games, setGames] = useState([])
   const [category, setCategory] = useState([]);
-  
+
   const fetchGamesData = () => {
     fetch(process.env.REACT_APP_API_URL, {
         method: "GET",
@@ -27,7 +27,6 @@ const GamesData = ({ genre }) => {
   }, []);
   
   useEffect(() => {
-
     const genres = {
       'shooters': 'Shooter',
       'sports': 'Sports',
@@ -42,29 +41,7 @@ const GamesData = ({ genre }) => {
     }
   }, [genre, games]);
 
-  return (
-    <div>
-    {category.length > 0 && (
-      <div className="container">
-        <div className="row">
-          {category.map(game => (
-            <div className="col-md-4 p-3" key={game.id}>
-              <div className="card">
-                <a href={game.game_url}>
-                  <img src={game.thumbnail} className="card-img-top" alt={game.title} />
-                </a>
-                <div className="card-body">
-                  <p className="card-title">Titulo: {game.title}</p>
-                  <p className="card-text">Genero: {game.genre}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    )}
-  </div>
-  );
+  return { category };
 }
 
 export default GamesData;
