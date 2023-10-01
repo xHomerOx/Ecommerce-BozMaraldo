@@ -4,6 +4,7 @@ const GamesData = ({ genre }) => {
   const [games, setGames] = useState([]);
   const [category, setCategory] = useState([]);
 
+  //Llamo a la API y guardo su URL en una variable de entorno
   const fetchGamesData = () => {
     fetch(process.env.REACT_APP_API_URL, {
       method: "GET",
@@ -23,6 +24,7 @@ const GamesData = ({ genre }) => {
     fetchGamesData();
   }, []);
 
+  //Objecto para mostrar titulo sin modificar URL
   useEffect(() => {
     const genres = {
       shooters: "Shooter",

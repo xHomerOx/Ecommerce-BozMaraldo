@@ -4,6 +4,7 @@ import Item from '../Item/Item';
 
 const ItemDetailContainer = () => {
     
+    {/* Llamo a otro endpoint para que me traiga los params por juego */}
     const { id } = useParams();
     const [game, setGame] = useState({});
 

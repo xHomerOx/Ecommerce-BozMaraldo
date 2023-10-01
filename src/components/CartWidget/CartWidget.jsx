@@ -3,6 +3,7 @@ import Badge from 'react-bootstrap/Badge';
 
 const CartWidget = ( { item }) => {
 
+    // CartWidget en NavBar
     return (
         <>
             <div className="position-relative">

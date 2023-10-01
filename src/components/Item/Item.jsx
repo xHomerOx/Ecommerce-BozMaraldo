@@ -10,6 +10,7 @@ import CartWidget from '../CartWidget/CartWidget';
 
 const Item = ({ game }) => {
 
+    //Agrego y quito Items
     const [item, setItem] = useState(0);
 
     const addItem = () => {

@@ -8,6 +8,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 function App() {
 
+  //Routeo de elementos y enlaces
   return (
     <>
       <div className="App">
