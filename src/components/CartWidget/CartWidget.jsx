@@ -8,7 +8,7 @@ const CartWidget = ( { item }) => {
         <>
             <div className="position-relative">
                 <BiCart size={32} className='text-white' />
-                <Badge bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                <Badge bg="danger" className="position-absolute top-0 translate-middle">
                     {item}
                 </Badge>
             </div>   

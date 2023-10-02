@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import CartWidget from '../CartWidget/CartWidget';
 
