@@ -5,21 +5,27 @@ const GamesData = ({ genre }) => {
   const [category, setCategory] = useState([]);
 
   //Llamo a la API y guardo su URL en una variable de entorno
-  const fetchGamesData = () => {
-    fetch(process.env.REACT_APP_API_URL, {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-        "X-RapidAPI-Host": process.env.REACT_APP_API_HOST,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setGames(data);
+  const fetchGamesData = async () => {
+    try {
+      const response = await fetch(process.env.REACT_APP_API_URL, {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Host": process.env.REACT_APP_API_HOST,
+        },
       })
-      .catch((error) => console.log(error));
-  };
 
+      const data = await response.json();
+      setGames(data);
+
+      if (!response.ok) {
+        throw new Error("Error de red");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
   useEffect(() => {
     fetchGamesData();
   }, []);
