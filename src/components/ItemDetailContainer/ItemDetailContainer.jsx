@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Item from '../Item/Item';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
     
@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <Item game={game} />
+            <ItemDetail game={game} />
         </>
     )
 }

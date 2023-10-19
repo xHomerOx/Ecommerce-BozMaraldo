@@ -7,7 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import CartWidget from '../CartWidget/CartWidget';
 
-const Item = ({ game }) => {
+const ItemDetail = ({ game }) => {
 
     //Agrego y quito Items
     const [item, setItem] = useState(0);
@@ -59,4 +59,4 @@ const Item = ({ game }) => {
     )
 }
 
-export default Item;
+export default ItemDetail;
