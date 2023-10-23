@@ -25,11 +25,11 @@ const ItemCount = ({ stock, initial, addItem }) => {
             <div className="text-white">
                 {quantity}
             </div>
-            <Button onClick={decrement}>-</Button>
-            <Button as="input" type="button" value="Resetear" onClick={reset}/>
-            <Button onClick={increment}>+</Button>
+            <Button onClick={decrement} className="me-2">-</Button>
+            <Button as="input" type="button" value="Reset" onClick={reset} className="mx-2" />
+            <Button onClick={increment} className="ms-2">+</Button>
             <div className="mt-2">
-                <Button onClick={() => addItem(quantity)}>Agregar al carrito</Button>
+                <Button onClick={() => addItem(quantity)}>Add to cart</Button>
             </div>
         </>
     )

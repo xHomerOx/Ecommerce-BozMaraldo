@@ -9,17 +9,17 @@ export const CartProvider = ({ children }) => {
     setCart(prev => [...prev, { ...item, quantity }]);
   };
 
-  const removeCartItem = (itemId) => {
-    const cartUpdated = cart.filter(prod => prod.id !== itemId);
+  const removeItem = (itemId) => {
+    const cartUpdated = cart.filter(game => game.id !== itemId);
     setCart(cartUpdated);
   }
 
-  const resetCartItem = () => {
+  const resetItem = () => {
     setCart([]);
   }
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeCartItem, resetCartItem }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, resetItem }}>
       {children}
     </CartContext.Provider>
   );

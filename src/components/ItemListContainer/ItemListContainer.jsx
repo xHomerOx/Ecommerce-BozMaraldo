@@ -32,13 +32,13 @@ const ItemListContainer = () => {
                                 <Card className='bg-dark'>
                                     {/* <Card.Img variant="top" src={game.thumbnail} alt={game.title} /> */}
                                     <Card.Body>
-                                        <Card.Title className='text-white'>Titulo: {game.title}</Card.Title>
+                                        <Card.Title className='text-white'>Title: {game.title}</Card.Title>
                                     </Card.Body>
                                     <ListGroup className="list-group-flush">
-                                        <ListGroup.Item className='bg-dark text-white'>Genero: {game.genre}</ListGroup.Item>
+                                        <ListGroup.Item className='bg-dark text-white'>Genre: {game.genre}</ListGroup.Item>
                                     </ListGroup>
                                     <Card.Body>
-                                        <Link to={`/game/${game.id}`} className="btn btn-primary">Ver detalles</Link>
+                                        <Link to={`/game/${game.id}`} className="btn btn-primary">View details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>

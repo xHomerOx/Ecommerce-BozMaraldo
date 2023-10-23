@@ -4,20 +4,20 @@ import Button from 'react-bootstrap/Button';
 import { CartContext } from '../../hooks/Context/Context';
 
 const CartItem = ({ game }) => {
-  const { title, price, quantity } = game;
-  const { removeCartItem } = useContext(CartContext);
+  const { title, price, quantity, id } = game;
+  const { removeItem } = useContext(CartContext);
 
   const handleRemoveItem = () => {
-    removeCartItem(title);
+    removeItem(id);
   };
 
   return (
     <Card className='bg-dark'>
       <Card.Body>
         <Card.Title className='text-white'>{title} x {quantity}</Card.Title>
-        <Card.Text className='text-white'>Precio: ${price}</Card.Text>
+        <Card.Text className='text-white'>Price: ${price}</Card.Text>
         <Button variant="danger" onClick={handleRemoveItem}>
-          Eliminar
+          Delete
         </Button>
       </Card.Body>
     </Card>

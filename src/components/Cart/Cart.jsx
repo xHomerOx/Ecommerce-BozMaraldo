@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 
 const Cart = () => {
 
-    const { cart, resetCartItem, totalQuantity, total } = useContext(CartContext);
+    const { cart, resetItem, totalQuantity, total } = useContext(CartContext);
 
     if (totalQuantity === 0) {
         return (
@@ -20,10 +20,10 @@ const Cart = () => {
     return (
         <div>
             {cart.map(item => (
-                <CartItem key={item.game.id} game={item.game} />
+                <CartItem key={item.id} {...item} />
             ))}
             <h3>Total: ${total}</h3>
-            <Button onClick={() => resetCartItem()} className="me-2">Clear cart</Button>
+            <Button onClick={() => resetItem()} className="me-2">Clear cart</Button>
             <Link to="/checkout">
                 <Button>
                     Checkout

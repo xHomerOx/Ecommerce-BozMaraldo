@@ -35,16 +35,16 @@ const ItemDetail = ({ game, stock }) => {
                             <Card.Title className='text-white'>{game.title}</Card.Title>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroup.Item className='bg-dark text-white'>Genero: {game.genre}</ListGroup.Item>
-                            <ListGroup.Item className='bg-dark text-white'>Plataforma: {game.platform}</ListGroup.Item>
-                            <ListGroup.Item className='bg-dark text-white'>Editor: {game.publisher}</ListGroup.Item>
-                            <ListGroup.Item className='bg-dark text-white'>Desarrollador: {game.developer}</ListGroup.Item>
+                            <ListGroup.Item className='bg-dark text-white'>Genre: {game.genre}</ListGroup.Item>
+                            <ListGroup.Item className='bg-dark text-white'>Platform: {game.platform}</ListGroup.Item>
+                            <ListGroup.Item className='bg-dark text-white'>Publisher: {game.publisher}</ListGroup.Item>
+                            <ListGroup.Item className='bg-dark text-white'>Developer: {game.developer}</ListGroup.Item>
                         </ListGroup>
                         <Card.Body>
                             {
                                 quantityAdded > 0 ? (
                                     <Link to="/cart">
-                                        <Button>Finalizar compra</Button>
+                                        <Button>Finalize purchase</Button>
                                     </Link>
                                 ) : (
                                     <ItemCount initial={1} stock={stock} addItem={handleOnAdd} />
