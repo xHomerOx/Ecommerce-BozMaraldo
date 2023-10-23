@@ -21,8 +21,11 @@ const Cart = () => {
         <div>
             {cart.map(item => <CartItem key={item.id} {...item}></CartItem>)}
             <h3>Total: ${total}</h3>
-            <Button onClick={() => resetCartItem()}></Button>
-            <Link to="/checkout">Checkout</Link>
+            <Link to="/checkout">
+                <Button onClick={() => resetCartItem()}>
+                    Checkout
+                </Button>
+            </Link>
         </div>
     )
 
