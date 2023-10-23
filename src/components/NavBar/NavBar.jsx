@@ -5,7 +5,7 @@ import logo from '../../assets/logo.svg';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
 
-const NavBar = () => {
+const NavBar = ({ item }) => {
   return (
         <Navbar variant="dark" bg="dark" expand="lg">
           <Container>
@@ -24,7 +24,7 @@ const NavBar = () => {
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
-            <CartWidget />
+            <CartWidget item={item} />
           </Container>
         </Navbar>
   );

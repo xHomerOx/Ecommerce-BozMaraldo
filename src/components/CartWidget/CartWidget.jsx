@@ -1,7 +1,9 @@
 import { BiCart } from 'react-icons/bi';
 import Badge from 'react-bootstrap/Badge';
+import { useCart } from '../../hooks/Context/Context';
 
-const CartWidget = ( { item }) => {
+const CartWidget = () => {
+    const { item } = useCart();
 
     // CartWidget en NavBar
     return (
