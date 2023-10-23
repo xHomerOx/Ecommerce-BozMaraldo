@@ -30,7 +30,7 @@ const ItemListContainer = () => {
                         category.map(game => (
                             <Col key={game.id}>
                                 <Card className='bg-dark'>
-                                    <Card.Img variant="top" src={game.thumbnail} alt={game.title} />
+                                    {/* <Card.Img variant="top" src={game.thumbnail} alt={game.title} /> */}
                                     <Card.Body>
                                         <Card.Title className='text-white'>Titulo: {game.title}</Card.Title>
                                     </Card.Body>

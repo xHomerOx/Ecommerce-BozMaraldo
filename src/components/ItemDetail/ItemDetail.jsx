@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -6,13 +6,23 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
+import { Button } from 'react-bootstrap';
+import { CartContext } from '../../hooks/Context/Context';
+
 
 const ItemDetail = ({ game, stock }) => {
 
   const [quantityAdded, setQuantityAdded] = useState(0);
 
+  const { addItem } = useContext(CartContext);
+
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity);
+
+    const item = { game };
+
+    addItem(item, quantity);
+
   }
 
   return (
@@ -20,7 +30,7 @@ const ItemDetail = ({ game, stock }) => {
             <Row xs={1} md={3} className="g-4 justify-content-center">
                 <Col key={game.id}>
                     <Card className='bg-dark'>
-                        <Card.Img variant="top" src={game.thumbnail} alt={game.title} />
+                        {/* <Card.Img variant="top" src={game.thumbnail} alt={game.title} /> */}
                         <Card.Body>
                             <Card.Title className='text-white'>{game.title}</Card.Title>
                         </Card.Body>
@@ -33,9 +43,11 @@ const ItemDetail = ({ game, stock }) => {
                         <Card.Body>
                             {
                                 quantityAdded > 0 ? (
-                                    <Link to="/cart">Finalizar compra</Link>
+                                    <Link to="/cart">
+                                        <Button>Finalizar compra</Button>
+                                    </Link>
                                 ) : (
-                                    <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
+                                    <ItemCount initial={1} stock={stock} addItem={handleOnAdd} />
                                 )
                             }
                         </Card.Body>
