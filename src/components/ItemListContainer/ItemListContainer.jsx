@@ -20,6 +20,7 @@ const ItemListContainer = () => {
     
     const { games, category } = GamesData({ genre });
 
+    console.log(category);
     // Muestro el contenido según género
     return (
         <>
