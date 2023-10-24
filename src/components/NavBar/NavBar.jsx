@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/logo.svg';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ item }) => {
   return (
@@ -24,7 +25,7 @@ const NavBar = ({ item }) => {
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
-            <CartWidget item={item} />
+            <Nav.Link as={Link} to="/cart"><CartWidget item={item} /></Nav.Link>
           </Container>
         </Navbar>
   );
