@@ -4,10 +4,12 @@ import { Button } from "react-bootstrap";
 const ItemCount = ({ stock, initial, addItem }) => {
     const [quantity, setQuantity] = useState(initial);
 
+    stock = 10;
+    
     const increment = () => {
-        // if (quantity < stock) {
+        if (quantity < stock) {
             setQuantity(quantity + 1);
-        // }
+        }
     }
 
     const decrement = () => {

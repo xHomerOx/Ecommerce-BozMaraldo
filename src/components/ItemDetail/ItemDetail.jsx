@@ -22,7 +22,6 @@ const ItemDetail = ({ game, stock }) => {
     const item = { game };
 
     addItem(item, quantity);
-
   }
 
   return (
@@ -30,7 +29,7 @@ const ItemDetail = ({ game, stock }) => {
             <Row xs={1} md={3} className="g-4 justify-content-center">
                 <Col key={game.id}>
                     <Card className='bg-dark'>
-                        {/* <Card.Img variant="top" src={game.thumbnail} alt={game.title} /> */}
+                        <Card.Img variant="top" src={game.thumbnail} alt={game.title} />
                         <Card.Body>
                             <Card.Title className='text-white'>{game.title}</Card.Title>
                         </Card.Body>

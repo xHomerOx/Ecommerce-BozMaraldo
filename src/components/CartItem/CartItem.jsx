@@ -3,8 +3,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { CartContext } from '../../hooks/Context/Context';
 
-const CartItem = ({ game }) => {
-  const { title, price, quantity, id } = game;
+const CartItem = ({ game, quantity, price }) => {
+
+  const { title, id } = game;
   const { removeItem } = useContext(CartContext);
 
   const handleRemoveItem = () => {
