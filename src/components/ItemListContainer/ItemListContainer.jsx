@@ -28,7 +28,7 @@ const ItemListContainer = () => {
     
             setGames(gamesData);
             setLoading(false);
-            
+
             } catch (error) {
                 console.error('Error:', error);
                 setLoading(false);
@@ -58,17 +58,17 @@ const ItemListContainer = () => {
                         <Row xs={1} md={3} className="g-4">
                             {games.length > 0 && (
                                 games.map(game => (
-                                    <Col key={game.id}>
+                                    <Col key={game.data.id}>
                                         <Card className='bg-dark'>
-                                            <Card.Img variant="top" src={game.thumbnail} alt={game.title} />
+                                            <Card.Img variant="top" src={game.data.thumbnail} alt={game.data.title} />
                                             <Card.Body>
-                                                <Card.Title className='text-white'>Title: {game.title}</Card.Title>
+                                                <Card.Title className='text-white'>Title: {game.data.title}</Card.Title>
                                             </Card.Body>
                                             <ListGroup className="list-group-flush">
-                                                <ListGroup.Item className='bg-dark text-white'>Genre: {game.genre}</ListGroup.Item>
+                                                <ListGroup.Item className='bg-dark text-white'>Genre: {game.data.genre}</ListGroup.Item>
                                             </ListGroup>
                                             <Card.Body>
-                                                <Link to={`/game/${game.id}`} className="btn btn-primary">View details</Link>
+                                                <Link to={`/game/${game.data.id}`} className="btn btn-primary">View details</Link>
                                             </Card.Body>
                                         </Card>
                                     </Col>
