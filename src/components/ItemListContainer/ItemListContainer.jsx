@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from "react-router-dom";
-import { useParams } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore"; 
 import { db } from '../../services/FirebaseConfig/FirebaseConfig';
 
 const ItemListContainer = () => {
     const [games, setGames] = useState([]);
+    const [filteredGames, setFilteredGames] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const { genre } = useParams();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,6 +29,8 @@ const ItemListContainer = () => {
               });
             });
     
+            console.log(gamesData);
+            
             setGames(gamesData);
             setLoading(false);
 
@@ -36,18 +41,25 @@ const ItemListContainer = () => {
         };
     
         fetchData();
-      }, []); 
+    }, []); 
 
 
+    useEffect(() => {
+        console.log(genre);
+        if (genre) {
+            const filteredGames = games.filter((game) => game.data.genre.toLowerCase() === genre.toLowerCase());
+            setFilteredGames(filteredGames);
+        } else {
+            setFilteredGames(games);
+        }
+    }, [genre, games]);
 
     const genres = {
-        'shooters': 'Shooters',
-        'sports': 'Sports',
-        'adventure': 'Adventure',
+        Shooters: "Shooter",
+        Sports: "Sports",
+        Adventure: "Adventure",
     };
-
-    const { genre } = useParams();
-
+    
     return (
             <>
                 <h2>{genres[genre]}</h2>
@@ -56,8 +68,8 @@ const ItemListContainer = () => {
                 ) : (
                     <Container>
                         <Row xs={1} md={3} className="g-4">
-                            {games.length > 0 && (
-                                games.map(game => (
+                            {filteredGames.length > 0 && (
+                                filteredGames.map(game => (
                                     <Col key={game.data.id}>
                                         <Card className='bg-dark'>
                                             <Card.Img variant="top" src={game.data.thumbnail} alt={game.data.title} />
