@@ -4,8 +4,7 @@ import ItemListContainer from "../../components/ItemListContainer/ItemListContai
 const Home = () => {
   return (
     <>
-      {/* Renderiza el contenido de la página inicial */}
-      <h2>Inicio</h2>
+      <h2>Home</h2>
       <div className="d-flex flex-row justify-content-center text-white" style={gamingBackground}>
         <ItemListContainer />
       </div>

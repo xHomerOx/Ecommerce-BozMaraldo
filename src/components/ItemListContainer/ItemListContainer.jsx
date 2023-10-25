@@ -23,25 +23,21 @@ const ItemListContainer = () => {
             const querySnapshot = await getDocs(collection(db, 'games'));
             const gamesData = [];
     
-            querySnapshot.forEach(async (game) => {
-
+            const imagesLoad = querySnapshot.docs.map(async (game) => {
                 const gameData = game.data();
-
                 const storageRef = ref(storage);
                 const imagesRef = ref(storageRef, 'images');
-                console.log(imagesRef)
-
                 const fileName = gameData.thumbnail;
                 const spaceRef = ref(imagesRef, fileName);
-                
-                const thumbnail =  await getDownloadURL(spaceRef);
-                console.log(thumbnail);
-                
+                const thumbnail = await getDownloadURL(spaceRef);
+                gameData.thumbnail = thumbnail;
                 gamesData.push({
                     id: game.id,
-                    data: { ...gameData },
-                });          
+                    data: gameData,
+                });
             });
+
+            await Promise.all(imagesLoad);
             
             setGames(gamesData);
             setLoading(false);
@@ -57,7 +53,6 @@ const ItemListContainer = () => {
 
 
     useEffect(() => {
-        console.log(genre);
         if (genre) {
             const filteredGames = games.filter((game) => game.data.genre.toLowerCase() === genre.toLowerCase());
             setFilteredGames(filteredGames);
@@ -67,9 +62,9 @@ const ItemListContainer = () => {
     }, [genre, games]);
 
     const genres = {
-        Shooter: "Shooter",
-        Sports: "Sports",
-        Adventure: "Adventure"
+        shooter: "Shooter",
+        sports: "Sports",
+        adventure: "Adventure"
     };
     
     return (
