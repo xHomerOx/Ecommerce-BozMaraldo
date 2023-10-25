@@ -21,7 +21,7 @@ const NavBar = ({ item }) => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/games/sports">Sports</NavDropdown.Item>
                   <NavDropdown.Item href="/games/adventure">Adventure</NavDropdown.Item>
-                  <NavDropdown.Item href="/games/shooters">Shooters</NavDropdown.Item>
+                  <NavDropdown.Item href="/games/shooter">Shooters</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

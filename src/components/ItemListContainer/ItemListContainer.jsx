@@ -55,9 +55,9 @@ const ItemListContainer = () => {
     }, [genre, games]);
 
     const genres = {
-        Shooters: "Shooter",
+        Shooter: "Shooter",
         Sports: "Sports",
-        Adventure: "Adventure",
+        Adventure: "Adventure"
     };
     
     return (
