@@ -6,8 +6,9 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore"; 
-import { db } from '../../services/FirebaseConfig/FirebaseConfig';
+import { collection, getDocs } from "firebase/firestore";
+import { db, storage } from '../../services/FirebaseConfig/FirebaseConfig';
+import { ref, getDownloadURL } from '@firebase/storage';
 
 const ItemListContainer = () => {
     const [games, setGames] = useState([]);
@@ -22,14 +23,25 @@ const ItemListContainer = () => {
             const querySnapshot = await getDocs(collection(db, 'games'));
             const gamesData = [];
     
-            querySnapshot.forEach((game) => {
-              gamesData.push({
-                id: game.id,
-                data: game.data(),
-              });
+            querySnapshot.forEach(async (game) => {
+
+                const gameData = game.data();
+
+                const storageRef = ref(storage);
+                const imagesRef = ref(storageRef, 'images');
+                console.log(imagesRef)
+
+                const fileName = gameData.thumbnail;
+                const spaceRef = ref(imagesRef, fileName);
+                
+                const thumbnail =  await getDownloadURL(spaceRef);
+                console.log(thumbnail);
+                
+                gamesData.push({
+                    id: game.id,
+                    data: { ...gameData },
+                });          
             });
-    
-            console.log(gamesData);
             
             setGames(gamesData);
             setLoading(false);
