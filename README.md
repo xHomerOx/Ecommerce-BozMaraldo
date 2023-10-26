@@ -1,6 +1,6 @@
 # GamingFarm
 
-Project of Gaming buying generated in React for Coderhouse ReactJS Course.
+Project of Gaming seller generated in React for Coderhouse ReactJS Course.
 
 ## Available Scripts
 
