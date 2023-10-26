@@ -14,8 +14,8 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
   
-  const addItem = (game, quantity) => {
-    setCart(prev => [...prev, { ...game, quantity }]);
+  const addItem = (game, id, quantity) => {
+    setCart(prev => [...prev, { ...game, id, quantity }]);
   };
 
   const removeItem = (gameId) => {

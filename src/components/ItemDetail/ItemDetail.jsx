@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap';
 import { CartContext } from '../../hooks/Context/Context';
 
 
-const ItemDetail = ({ game, thumbnail }) => {
+const ItemDetail = ({ game, id, thumbnail }) => {
 
   const [quantityAdded, setQuantityAdded] = useState(0);
 
@@ -21,7 +21,7 @@ const ItemDetail = ({ game, thumbnail }) => {
 
     const item = { game };
 
-    addItem(item, quantity);
+    addItem(item, id, quantity);
   }
 
   return (

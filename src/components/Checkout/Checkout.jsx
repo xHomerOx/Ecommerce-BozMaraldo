@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../hooks/Context/Context";
-import { Timestamp, collection, writeBatch, doc, getDocs, addDoc } from "firebase/firestore";
+import { Timestamp, collection, writeBatch, doc, getDoc, addDoc } from "firebase/firestore";
 import { db } from "../../services/FirebaseConfig/FirebaseConfig";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
@@ -8,7 +8,7 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState('');
 
-    const { cart, total, clearCart } = useContext(CartContext);
+    const { cart, totalQuantity, resetItem } = useContext(CartContext);
 
     const createOrder = async ({ userName, userPhone, userEmail }) => {
         setLoading(true);
@@ -21,7 +21,7 @@ const Checkout = () => {
                     userEmail
                 },
                 orderItems: cart,
-                totalItems: total,
+                totalItems: totalQuantity,
                 orderDate: Timestamp.fromDate(new Date())
             }
 
@@ -30,8 +30,7 @@ const Checkout = () => {
 
             for (const game of cart) {
                 const gameRef = doc(db, 'games', game.id);
-                const gameDoc = getDocs(gameRef);
-                console.log(gameDoc);
+                const gameDoc = await getDoc(gameRef);
                 if (gameDoc.exists()) {
                     const stock = gameDoc.data().stock;
                     if (stock >= game.quantity) {
@@ -39,7 +38,7 @@ const Checkout = () => {
                             stock: stock - game.quantity
                         });
                     } else {
-                        outOfStock.push(game.name);
+                        outOfStock.push(game.title);
                     }
                 }
             }
@@ -52,7 +51,8 @@ const Checkout = () => {
                 const orderDocRef = await addDoc(ordersRef, newOrder);
                 setOrderId(orderDocRef.id);
                 await batch.commit();
-                clearCart();
+                resetItem();
+                setLoading(false); 
             }
 
         } catch (error) {

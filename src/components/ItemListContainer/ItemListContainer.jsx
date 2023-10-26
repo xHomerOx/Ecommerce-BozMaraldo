@@ -30,6 +30,7 @@ const ItemListContainer = () => {
                 const fileName = gameData.thumbnail;
                 const spaceRef = ref(imagesRef, fileName);
                 const thumbnail = await getDownloadURL(spaceRef);
+                gameData.id = game.id;
                 gameData.thumbnail = thumbnail;
                 gamesData.push({
                     id: game.id,

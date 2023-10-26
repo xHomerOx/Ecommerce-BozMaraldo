@@ -48,7 +48,7 @@ const ItemDetailContainer = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <ItemDetail game={game} thumbnail={thumbnail} />
+                <ItemDetail game={game} id={id} thumbnail={thumbnail} />
             )}
         </>
     );

@@ -1,6 +1,6 @@
 # GamingFarm
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project of Gaming buying generated in React for Coderhouse ReactJS Course.
 
 ## Available Scripts
 
