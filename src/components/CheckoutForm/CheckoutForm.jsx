@@ -14,6 +14,7 @@ const CheckoutForm = ({ onConfirm }) => {
             userName, userPhone, userEmail
         }
 
+        console.log(userData);
         onConfirm(userData);
     }
 

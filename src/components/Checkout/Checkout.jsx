@@ -29,10 +29,9 @@ const Checkout = () => {
             const outOfStock = [];
 
             for (const game of cart) {
-
                 const gameRef = doc(db, 'games', game.id);
-                const gameDoc = await getDocs(gameRef);
-                
+                const gameDoc = getDocs(gameRef);
+                console.log(gameDoc);
                 if (gameDoc.exists()) {
                     const stock = gameDoc.data().stock;
                     if (stock >= game.quantity) {
