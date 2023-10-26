@@ -5,9 +5,7 @@ import { Badge } from 'react-bootstrap';
 
 const CartWidget = () => {
 
-    const { cart } = useContext(CartContext);
-
-    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+    const { totalQuantity } = useContext(CartContext);
 
     return (
         <>
