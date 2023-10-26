@@ -25,7 +25,9 @@ const NavBar = ({ item }) => {
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
-            <Nav.Link as={Link} to="/cart"><CartWidget item={item} /></Nav.Link>
+            <Nav.Link as={Link} to="/cart">
+              <CartWidget item={item} />
+            </Nav.Link>
           </Container>
         </Navbar>
   );

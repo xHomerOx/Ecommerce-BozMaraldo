@@ -10,7 +10,8 @@ const ItemDetailContainer = () => {
     const [game, setGame] = useState({});
     const [loading, setLoading] = useState(true);
     const [thumbnail, setThumbnail] = useState('');
-
+    const [idNumber, setIdNumber] = useState('');
+    
     useEffect(() => {
         const fetchGameDetails = async () => {
             try {
@@ -28,6 +29,11 @@ const ItemDetailContainer = () => {
 
                 setGame(gameData);
                 setLoading(false);
+
+                const idNumber = gameData.id;
+                setIdNumber(idNumber);
+                console.log(idNumber);
+
             } catch (error) {
                 console.error('Error:', error);
                 setLoading(false);
@@ -42,7 +48,7 @@ const ItemDetailContainer = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <ItemDetail game={game} thumbnail={thumbnail} />
+                <ItemDetail game={game} thumbnail={thumbnail} idNumber={idNumber} />
             )}
         </>
     );
