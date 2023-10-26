@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap';
 import { CartContext } from '../../hooks/Context/Context';
 
 
-const ItemDetail = ({ game, stock }) => {
+const ItemDetail = ({ game, thumbnail }) => {
 
   const [quantityAdded, setQuantityAdded] = useState(0);
 
@@ -29,7 +29,7 @@ const ItemDetail = ({ game, stock }) => {
             <Row xs={1} md={3} className="g-4 justify-content-center">
                 <Col key={game.id}>
                     <Card className='bg-dark'>
-                        <Card.Img variant="top" src={game.thumbnail} alt={game.title} />
+                        <Card.Img variant="top" src={thumbnail} alt={game.title} />
                         <Card.Body>
                             <Card.Title className='text-white'>{game.title}</Card.Title>
                         </Card.Body>
@@ -46,7 +46,7 @@ const ItemDetail = ({ game, stock }) => {
                                         <Button>Finalize purchase</Button>
                                     </Link>
                                 ) : (
-                                    <ItemCount initial={1} stock={stock} addItem={handleOnAdd} />
+                                    <ItemCount initial={1} stock={game.stock} price={game.price} addItem={handleOnAdd} />
                                 )
                             }
                         </Card.Body>

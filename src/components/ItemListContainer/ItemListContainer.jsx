@@ -77,7 +77,7 @@ const ItemListContainer = () => {
                         <Row xs={1} md={3} className="g-4">
                             {filteredGames.length > 0 && (
                                 filteredGames.map(game => (
-                                    <Col key={game.data.id}>
+                                    <Col key={game.id}>
                                         <Card className='bg-dark'>
                                             <Card.Img variant="top" src={game.data.thumbnail} alt={game.data.title} />
                                             <Card.Body>
@@ -87,7 +87,7 @@ const ItemListContainer = () => {
                                                 <ListGroup.Item className='bg-dark text-white'>Genre: {game.data.genre}</ListGroup.Item>
                                             </ListGroup>
                                             <Card.Body>
-                                                <Link to={`/game/${game.data.id}`} className="btn btn-primary">View details</Link>
+                                                <Link to={`/game/${game.id}`} className="btn btn-primary">View details</Link>
                                             </Card.Body>
                                         </Card>
                                     </Col>
