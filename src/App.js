@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { CartProvider } from './hooks/Context/Context';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 import NotFound from './components/NotFound/NotFound';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/games/:genre" element={<ItemListContainer />} />
                 <Route path="/game/:id" element={<ItemDetailContainer />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
