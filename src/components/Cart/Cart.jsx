@@ -24,7 +24,7 @@ const Cart = () => {
             {cart.map((item, index) => (
                 <CartItem key={`${item.game.id}-${index}`} game={item.game} quantity={item.quantity} />
             ))}
-            <h3>Total: ${total}</h3>
+            <h3>Total: ${total}, Quantity: {totalQuantity}</h3>
             <Button onClick={() => resetItem()} className="me-2">Clear cart</Button>
             <Link to="/checkout">
                 <Button>

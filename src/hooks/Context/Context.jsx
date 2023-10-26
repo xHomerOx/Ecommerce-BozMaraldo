@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useState } from 'react';
+import React, { useEffect, createContext, useState, useMemo } from 'react';
 
 export const CartContext = createContext({ cart: [] });
 
@@ -10,6 +10,10 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
+  const totalQuantity = useMemo(() => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  }, [cart]);
+  
   const addItem = (game, quantity) => {
     setCart(prev => [...prev, { ...game, quantity }]);
   };
@@ -24,7 +28,7 @@ export const CartProvider = ({ children }) => {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, resetItem }}>
+    <CartContext.Provider value={{ cart, totalQuantity, addItem, removeItem, resetItem }}>
       {children}
     </CartContext.Provider>
   );
