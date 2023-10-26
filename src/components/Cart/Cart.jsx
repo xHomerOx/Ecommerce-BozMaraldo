@@ -6,7 +6,9 @@ import { Button } from "react-bootstrap";
 
 const Cart = () => {
 
-    const { cart, resetItem, totalQuantity, total } = useContext(CartContext);
+    const { cart, resetItem, totalQuantity } = useContext(CartContext);
+
+    const total = cart.reduce((total, item) => total + item.game.price * item.quantity, 0);
 
     if (totalQuantity === 0) {
         return (

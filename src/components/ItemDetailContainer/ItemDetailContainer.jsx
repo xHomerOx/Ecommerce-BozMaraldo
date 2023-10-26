@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { doc, getDoc } from 'firebase/firestore';
 import { db, storage } from '../../services/FirebaseConfig/FirebaseConfig';
@@ -10,30 +10,30 @@ const ItemDetailContainer = () => {
     const [game, setGame] = useState({});
     const [loading, setLoading] = useState(true);
     const [thumbnail, setThumbnail] = useState('');
-    const [idNumber, setIdNumber] = useState('');
-    
+    const navigate = useNavigate(); 
+
     useEffect(() => {
         const fetchGameDetails = async () => {
             try {
                 const gameRef = doc(db, 'games', id);
                 const gameDoc = await getDoc(gameRef);
-                const gameData = gameDoc.data();
-                
-                const storageRef = ref(storage);
-                const imagesRef = ref(storageRef, 'images');
-                const fileName = gameData.thumbnail;
-                const spaceRef = ref(imagesRef, fileName);
-                const thumbnail = await getDownloadURL(spaceRef);
 
-                setThumbnail(thumbnail);
+                if (!gameDoc.exists()) {
+                    navigate('/404');
+                } else {
 
-                setGame(gameData);
-                setLoading(false);
+                    const gameData = gameDoc.data();
+                    const storageRef = ref(storage);
+                    const imagesRef = ref(storageRef, 'images');
+                    const fileName = gameData.thumbnail;
+                    const spaceRef = ref(imagesRef, fileName);
+                    const thumbnail = await getDownloadURL(spaceRef);
 
-                const idNumber = gameData.id;
-                setIdNumber(idNumber);
-                console.log(idNumber);
+                    setThumbnail(thumbnail);
 
+                    setGame(gameData);
+                    setLoading(false);
+                }
             } catch (error) {
                 console.error('Error:', error);
                 setLoading(false);
@@ -41,14 +41,14 @@ const ItemDetailContainer = () => {
         };
 
         fetchGameDetails();
-    }, [id]);
+    }, [id, navigate]);
 
     return (
         <>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <ItemDetail game={game} thumbnail={thumbnail} idNumber={idNumber} />
+                <ItemDetail game={game} thumbnail={thumbnail} />
             )}
         </>
     );

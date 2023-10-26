@@ -1,16 +1,15 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import { gamingBackground, headerHeight } from './styles/Styles/Styles';
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { CartProvider } from './hooks/Context/Context';
 import Cart from './components/Cart/Cart';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
-
-  const { id } = useParams(); 
 
   return (
       <CartProvider>
@@ -24,8 +23,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/games/:genre" element={<ItemListContainer />} />
-                <Route path="/game/:id" element={<ItemDetailContainer id={id} />} />
+                <Route path="/game/:id" element={<ItemDetailContainer />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
           </BrowserRouter>
