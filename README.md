@@ -39,3 +39,7 @@ The games and orders cart are stored in Firebase(FireStore) to retrieve data and
 **Images**
 
 Images are stored in Firebase Storage and the references points to "Thumbnail" in FireStore Database.
+
+## DEMO
+
+https://drive.google.com/file/d/1Rb3BwBrKPrd-yBv9m8KblJcSqW8P9Kvk/view?usp=sharing
