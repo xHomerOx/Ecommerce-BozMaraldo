@@ -6,15 +6,21 @@ const CheckoutForm = ({ onConfirm }) => {
     const [userName, setUserName] = useState('');
     const [userPhone, setUserPhone] = useState('');
     const [userEmail, setUserEmail] = useState('');
+    const [userEmailConfirmation, setUserEmailConfirmation] = useState('');
+    const [emailMatchError, setEmailMatchError] = useState('');
 
     const handleConfirm = (e) => {
         e.preventDefault();
 
-        const userData = {
-            userName, userPhone, userEmail
-        }
+        if (userEmail === userEmailConfirmation) {
+            const userData = {
+                userName, userPhone, userEmail
+            }
 
-        onConfirm(userData);
+            onConfirm(userData);
+        } else {
+            setEmailMatchError('Emails must match.');
+        }
     }
 
     return (
@@ -35,6 +41,12 @@ const CheckoutForm = ({ onConfirm }) => {
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" placeholder="Enter your Email" value={userEmail} onChange={({ target }) => setUserEmail(target.value)} />
             </Form.Group>
+
+            <Form.Group className="mx-auto my-2 w-50" controlId="formBasicEmailConfirmation">
+                <Form.Label>Confirm Email</Form.Label>
+                <Form.Control type="email" placeholder="Confirm your Email" value={userEmailConfirmation} onChange={({ target }) => setUserEmailConfirmation(target.value)} />
+            </Form.Group>
+            {emailMatchError && <p className="text-danger">{emailMatchError}</p>}
 
             <Button variant="primary" type="submit">
                 Submit
