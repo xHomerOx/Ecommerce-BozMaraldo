@@ -18,6 +18,8 @@ const CheckoutForm = ({ onConfirm }) => {
     }
 
     return (
+
+        // Form with data.
         <Form onSubmit={handleConfirm}>
             <Form.Group className="mx-auto my-2 w-50" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>

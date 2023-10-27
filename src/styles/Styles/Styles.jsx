@@ -1,5 +1,6 @@
 import gamingImg from '../../assets/gaming-background.jpg';
 
+// Styles
 export const gamingBackground = {
     backgroundImage: `url(${gamingImg})`,
     backgroundSize: 'cover',

@@ -12,6 +12,7 @@ const ItemDetailContainer = () => {
     const [thumbnail, setThumbnail] = useState('');
     const navigate = useNavigate(); 
 
+    // FireStore references of the game.
     useEffect(() => {
         const fetchGameDetails = async () => {
             try {

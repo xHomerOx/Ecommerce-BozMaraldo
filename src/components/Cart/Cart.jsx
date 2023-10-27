@@ -19,6 +19,7 @@ const Cart = () => {
         )
     }
 
+    // Added Index to Key so it isn't duplicated.
     return (
         <div>
             {cart.map((item, index) => (

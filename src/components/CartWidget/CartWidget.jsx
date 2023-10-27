@@ -6,7 +6,8 @@ import { Badge } from 'react-bootstrap';
 const CartWidget = () => {
 
     const { totalQuantity } = useContext(CartContext);
-
+    
+    // Cart Badge and Bootstrap Icon.
     return (
         <>
             <div className="position-relative">

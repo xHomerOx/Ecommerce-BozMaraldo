@@ -17,6 +17,7 @@ const ItemListContainer = () => {
 
     const { genre } = useParams();
 
+    // Get the collection.
     useEffect(() => {
         const fetchData = async () => {
           try {

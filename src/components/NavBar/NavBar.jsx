@@ -6,6 +6,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 
+
+// Bootstrap Navbar links
 const NavBar = ({ item }) => {
   return (
         <Navbar variant="dark" bg="dark" expand="lg">

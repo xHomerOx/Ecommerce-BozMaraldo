@@ -12,6 +12,7 @@ const CartItem = ({ game, quantity }) => {
     removeItem(id);
   };
 
+  // Cart Price and Quantity.
   return (
     <Card className='bg-dark'>
       <Card.Body>

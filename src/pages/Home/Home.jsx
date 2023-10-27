@@ -2,6 +2,8 @@ import { gamingBackground } from "../../styles/Styles/Styles"
 import ItemListContainer from "../../components/ItemListContainer/ItemListContainer"
 
 const Home = () => {
+  
+  // Home Page
   return (
     <>
       <h2>Home</h2>

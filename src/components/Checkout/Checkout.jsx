@@ -28,6 +28,7 @@ const Checkout = () => {
             const batch = writeBatch(db);
             const outOfStock = [];
 
+            // Retrieve information from CartContext.
             for (const game of cart) {
                 const gameRef = doc(db, 'games', game.id);
                 const gameDoc = await getDoc(gameRef);

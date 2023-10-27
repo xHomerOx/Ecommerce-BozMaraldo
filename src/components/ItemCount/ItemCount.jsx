@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 const ItemCount = ({ stock, initial, addItem }) => {
     const [quantity, setQuantity] = useState(initial);
 
+    // Item Counter
     const increment = () => {
         if (quantity < stock) {
             setQuantity(quantity + 1);

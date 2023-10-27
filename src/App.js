@@ -12,6 +12,7 @@ import NotFound from './components/NotFound/NotFound';
 
 function App() {
 
+  // Routing paths.
   return (
       <CartProvider>
         <div className="App">

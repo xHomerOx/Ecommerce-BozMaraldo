@@ -24,6 +24,7 @@ const ItemDetail = ({ game, id, thumbnail }) => {
     addItem(item, id, quantity);
   }
 
+  //The single game details.
   return (
         <Container>
             <Row xs={1} md={3} className="g-4 justify-content-center">
